@@ -1,6 +1,6 @@
 # QShare
 
-Local network file sharing tool built with .NET Core
+.NET CLI tool for local network file sharing
 
 > Receiver doesn't have to install qshare or any other 3rd party application (just a web browser).
 
