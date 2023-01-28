@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Qabbary.QShare</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Ahmed Qabbary</Authors>
+    <Title>Ahmed Qabbary</Title>
+    <Description>Local network file sharing tool</Description>
+    <PackageProjectUrl>https://github.com/AhmedKabbary/QShare</PackageProjectUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>qshare</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="assets\**\*" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+</Project>

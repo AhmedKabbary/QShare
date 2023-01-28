@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QShare</title>
+</head>
+
+<body>
+
+    <section>
+        <ul id="files-list">
+
+        </ul>
+    </section>
+
+    <script>
+        let container = document.getElementById("files-list");
+
+        fetch('files')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Status code is not OK');
+                }
+                return response.json();
+            }).then((files) => {
+                for (let i = 0; i < files.length; i++) {
+                    let file = files[i];
+
+                    let li = document.createElement("li");
+
+                    let a = document.createElement("a");
+                    a.href = "files/" + file.name;
+                    a.innerHTML = file.name;
+                    li.appendChild(a);
+
+                    let span = document.createElement("span");
+                    span.innerHTML = ' (' + file.size + ')';
+                    li.appendChild(span);
+
+                    container.appendChild(li);
+                }
+            }).catch((error) => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+    </script>
+</body>
+
+</html>
