@@ -106,7 +106,9 @@ public class FilesServer
         String path = request.Url!.AbsolutePath;
 
         String filePath = path.Substring(7);
-        if (_filesMap.TryGetValue(filePath, out FileInfo? file))
+        String decodedFilePath = WebUtility.UrlDecode(filePath);
+
+        if (_filesMap.TryGetValue(decodedFilePath, out FileInfo? file))
         {
             response.ContentLength64 = file.Length;
             response.ContentType = MediaTypeNames.Application.Octet;
